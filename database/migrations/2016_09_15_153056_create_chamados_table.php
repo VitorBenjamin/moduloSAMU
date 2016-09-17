@@ -14,8 +14,14 @@ class CreateChamadosTable extends Migration
     public function up()
     {
         Schema::create('chamados', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id');            
+            $table->integer('latitue');
+            $table->integer('longitute');
+            $table->binary('imagem');
+            $table->json('questionario');
+            $table->integer('status')->unsigned()->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

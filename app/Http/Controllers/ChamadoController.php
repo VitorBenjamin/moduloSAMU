@@ -37,9 +37,21 @@ class ChamadoController extends Controller
     public function store()
     {
         //
+        
         $meujson = file_get_contents("php://input");
+        
         $json = json_decode($meujson);
-        dd($json);
+        if ($json != null){
+            return "Filé deu certo";
+        }else{
+            return "Deu Ruim";
+        }       
+        /*$emp = $json->employees; 
+        foreach ($emp as $emps) {
+            echo "$emps->firstName";
+        }
+        */
+        return "asdas";
     }
 
     /**
