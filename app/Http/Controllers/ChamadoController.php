@@ -41,8 +41,9 @@ class ChamadoController extends Controller
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson);
+        
         if ($json != null){
-            return $json->nome . $json->imagen;
+            return $json->imagen.$json->nome;
         }else{
             return "Deu Ruim";
         }       
@@ -51,7 +52,7 @@ class ChamadoController extends Controller
             echo "$emps->firstName";
         }
         */
-        return "asdas";
+        return "pohha";
     }
 
     /**
