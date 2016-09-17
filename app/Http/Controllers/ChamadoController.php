@@ -37,12 +37,12 @@ class ChamadoController extends Controller
     public function store()
     {
         //
-        
+
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson);
         if ($json != null){
-            return "Filé deu certo";
+            return $json->nome . $json->imagen;
         }else{
             return "Deu Ruim";
         }       
