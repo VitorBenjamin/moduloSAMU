@@ -42,8 +42,9 @@ class ChamadoController extends Controller
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson);        
-        if ($json != null){
-            return response()->json($json);
+        if ($json != null){            
+            return response()->json($json->img);
+            //DB::insert('insert into testes (data) values (?)', [$json]);
         }else{
             return "Deu Ruim";
         }       
