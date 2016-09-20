@@ -43,7 +43,7 @@ class ChamadoController extends Controller
         
         $json = json_decode($meujson);        
         if ($json != null){
-            return "TESTE";
+            return $json;
         }else{
             return "Deu Ruim";
         }       
