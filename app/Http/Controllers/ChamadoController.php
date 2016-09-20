@@ -16,6 +16,7 @@ class ChamadoController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
@@ -34,16 +35,15 @@ class ChamadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
         //
-
+        //dd($request->all());
         $meujson = file_get_contents("php://input");
         
-        $json = json_decode($meujson);
-        
+        $json = json_decode($meujson);        
         if ($json != null){
-            return $json->imagen.$json->nome;
+            return "TESTE";
         }else{
             return "Deu Ruim";
         }       
