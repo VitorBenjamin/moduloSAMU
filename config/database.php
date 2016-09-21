@@ -52,13 +52,15 @@ return [
             'prefix' => '',
         ],
 
+        
+
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', '209.99.16.14'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'betsocf5_projetosamu'),
+            'username' => env('DB_USERNAME', 'betsocf5_admin'),
+            'password' => env('DB_PASSWORD', 'betsocker123'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

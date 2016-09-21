@@ -17,7 +17,7 @@ class CreateChamadosTable extends Migration
             $table->increments('id');   
             $table->string('latitue');
             $table->string('longitute');            
-            $table->integer('status')->unsigned();
+            $table->integer('status_id')->unsigned();
             $table->string('descricao');
             $table->boolean('clinico');
             $table->binary('img')->nullable();
