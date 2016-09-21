@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 
 class ChamadoController extends Controller
@@ -42,12 +42,30 @@ class ChamadoController extends Controller
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson);        
-        if ($json != null){            
-            return response()->json($json);
-            //DB::insert('insert into testes (data) values (?)', [$json]);
-        }else{
-            return "Deu Ruim";
-        }       
+        if ($json != null){
+          $dados['latitude']= $json->latiude;
+          $dados['longitute']= $json->longitute;
+          $dados['status']= 1;
+          $dados['descricao']= $json->descricao;          
+          $dados['clinico']= false;
+          if ($json->img != null) {
+              $dados['img']= $json->img;
+          }else{
+            $dados['img']= null;
+        }
+        $chamado=App\Chamado::create($dados);
+        $chamado->save();
+          //$base64= base64_encode($json->img);
+          //echo '<img src="data:image/jpg;base64,' . $json->img . '" />';
+          //echo (<img src="data:image/gif;base64,$json->img">);  
+        $teste = DB::select('select data from testes where id = 1');
+        echo '<img src="data:image/jpg;base64,' . $teste[0]->data . '" />';
+        dd($teste[0]->data);                
+        DB::insert('insert into testes (data) values (?)', [$json->img]);
+        return "FIle";
+    }else{
+        return "Deu Ruim";
+    }       
         /*$emp = $json->employees; 
         foreach ($emp as $emps) {
             echo "$emps->firstName";
