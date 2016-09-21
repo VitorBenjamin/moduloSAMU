@@ -45,7 +45,7 @@ class ChamadoController extends Controller
         if ($json != null){
           $dados['latitude']= $json->latiude;
           $dados['longitute']= $json->longitute;
-          $dados['status']= 1;
+          $dados['status_id']= 1;
           $dados['descricao']= $json->descricao;          
           $dados['clinico']= false;
           if ($json->img != null) {
@@ -60,7 +60,7 @@ class ChamadoController extends Controller
           //echo (<img src="data:image/gif;base64,$json->img">);  
         $teste = DB::select('select data from testes where id = 1');
         echo '<img src="data:image/jpg;base64,' . $teste[0]->data . '" />';
-        dd($teste[0]->data);                
+        //dd($teste[0]->data);                
         DB::insert('insert into testes (data) values (?)', [$json->img]);
         return "FIle";
     }else{
