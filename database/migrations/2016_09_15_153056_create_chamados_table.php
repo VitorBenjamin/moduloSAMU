@@ -15,8 +15,8 @@ class CreateChamadosTable extends Migration
     {
         Schema::create('chamados', function (Blueprint $table) {
             $table->increments('id');   
-            $table->string('latitue');
-            $table->string('longitute');            
+            $table->string('latitude');
+            $table->string('longitude');            
             $table->integer('status_id')->unsigned();
             $table->string('descricao');
             $table->boolean('clinico');

@@ -10,7 +10,7 @@ class Chamado extends Model
 	use SoftDeletes;
 
 	protected $table = 'chamados';
-	protected $fillable = ['latitude','longitude','descricao','clinico','img','status'];
+	protected $fillable = ['latitude','longitude','descricao','clinico','img','status_id'];
 
 	public function status(){
 

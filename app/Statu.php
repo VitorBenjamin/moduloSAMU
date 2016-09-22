@@ -8,6 +8,7 @@ class Statu extends Model
 {
     //
     protected $table = 'status';
+    protected $fillable = ['tipo'];
 
 	public function chamado(){
 

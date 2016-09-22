@@ -39,29 +39,32 @@ class ChamadoController extends Controller
     {
         //
         //dd($request->all());
+        $dado['tipo']="sauve";
+
+        \App\Statu::create($dado);
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson);        
         if ($json != null){
-          $dados['latitude']= $json->latiude;
-          $dados['longitute']= $json->longitute;
-          $dados['status_id']= 1;
-          $dados['descricao']= $json->descricao;          
-          $dados['clinico']= false;
-          if ($json->img != null) {
+           //($json);
+           $dados['descricao']= $json->descricao;  
+           $dados['latitude']= $json->latitude;
+           $dados['longitude']= $json->longitude;
+           $dados['status_id']= 1;
+
+           $dados['clinico']= false;
+           if ($json->img != null) {
               $dados['img']= $json->img;
           }else{
             $dados['img']= null;
         }
-        $chamado=App\Chamado::create($dados);
+        $chamado=\App\Chamado::create($dados);
         $chamado->save();
           //$base64= base64_encode($json->img);
           //echo '<img src="data:image/jpg;base64,' . $json->img . '" />';
           //echo (<img src="data:image/gif;base64,$json->img">);  
-        $teste = DB::select('select data from testes where id = 1');
-        echo '<img src="data:image/jpg;base64,' . $teste[0]->data . '" />';
-        //dd($teste[0]->data);                
-        DB::insert('insert into testes (data) values (?)', [$json->img]);
+        $teste = DB::select('select img from chamados where id = 1');
+        echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';               
         return "FIle";
     }else{
         return "Deu Ruim";
