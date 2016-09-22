@@ -63,8 +63,8 @@ class ChamadoController extends Controller
           //$base64= base64_encode($json->img);
           //echo '<img src="data:image/jpg;base64,' . $json->img . '" />';
           //echo (<img src="data:image/gif;base64,$json->img">);  
-        $teste = DB::select('select img from chamados where id = 1');
-        echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';               
+        //$teste = DB::select('select img from chamados where id = 1');
+        ///echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';               
         return "FIle";
     }else{
         return "Deu Ruim";
