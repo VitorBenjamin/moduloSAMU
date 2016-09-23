@@ -46,10 +46,11 @@ class ChamadoController extends Controller
     public function store()
     {
         
-        //dd($request->all());
+        
         $dado['tipo']="sauve";
 
-        //\App\Statu::create($dado);
+        \App\Statu::create($dado);
+        
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson);        
@@ -63,22 +64,11 @@ class ChamadoController extends Controller
            $dados['clinico']= false;           
         
         $chamado=\App\Chamado::create($dados);        
-        $chamado->save();
-          //$base64= base64_encode($json->img);
-          //echo '<img src="data:image/jpg;base64,' . $json->img . '" />';
-          //echo (<img src="data:image/gif;base64,$json->img">);  
-
-        /*$teste = DB::select('select img from chamados where id = 8');        
-        echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';*/               
+        $chamado->save();               
         return "final";
     }else{
         return "Deu Ruim";
     }       
-        /*$emp = $json->employees; 
-        foreach ($emp as $emps) {
-            echo "$emps->firstName";
-        }
-        */
         return "pohha";
     }
 
