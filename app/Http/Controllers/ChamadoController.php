@@ -61,7 +61,7 @@ class ChamadoController extends Controller
            $dados['status_id']= 1;
            $dados['img']= "pohha";
            $dados['clinico']= false;           
-        }
+        
         $chamado=\App\Chamado::create($dados);        
         $chamado->save();
           //$base64= base64_encode($json->img);
