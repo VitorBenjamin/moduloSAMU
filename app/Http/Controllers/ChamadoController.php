@@ -49,15 +49,15 @@ class ChamadoController extends Controller
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson); 
-        return response()->json($meujson->img);
-        if ($json != null){
+
+        if ($json != null){            
             $dado['tipo']="sauve";
             \App\Statu::create($dado); 
             $dados['descricao']= $json->descricao;  
             $dados['latitude']= $json->latitude;
             $dados['longitude']= $json->longitude;
             $dados['status_id']= 1;
-            $dados['img']= "teste";
+            $dados['img']= base64_decode($json->img);
             $dados['clinico']= false;           
 
             $chamado=\App\Chamado::create($dados);        
