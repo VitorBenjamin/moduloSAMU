@@ -55,8 +55,8 @@ class ChamadoController extends Controller
         $json = json_decode($meujson);        
         
         if ($json != null){
-        //($json);
-        //return response()->json($meujson);
+        
+        
            $dados['descricao']= $json->descricao;  
            $dados['latitude']= $json->latitude;
            $dados['longitude']= $json->longitude;
@@ -70,8 +70,8 @@ class ChamadoController extends Controller
           //echo '<img src="data:image/jpg;base64,' . $json->img . '" />';
           //echo (<img src="data:image/gif;base64,$json->img">);  
 
-        //$teste = DB::select('select img from chamados where id = 8');        
-        //echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';               
+        /*$teste = DB::select('select img from chamados where id = 8');        
+        echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';*/               
         return "final";
     }else{
         return "Deu Ruim";
