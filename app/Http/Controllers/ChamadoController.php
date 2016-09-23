@@ -49,6 +49,7 @@ class ChamadoController extends Controller
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson); 
+        return response()->json($meujson);
         if ($json != null){
             $dado['tipo']="sauve";
             \App\Statu::create($dado); 
