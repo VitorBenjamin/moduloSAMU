@@ -55,21 +55,19 @@ class ChamadoController extends Controller
         
         $json = json_decode($meujson);        
         
-        if ($json != null){
-           $dados['descricao']= $json->descricao;  
-           $dados['latitude']= $json->latitude;
-           $dados['longitude']= $json->longitude;
+        
+           $dados['descricao']= $meujson->descricao;  
+           $dados['latitude']= $meujson->latitude;
+           $dados['longitude']= $meujson->longitude;
            $dados['status_id']= 1;
-           $dados['img']= $json->img;
+           $dados['img']= $meujson->img;
            $dados['clinico']= false;           
         
         $chamado=\App\Chamado::create($dados);        
         $chamado->save();               
-        return "final";
-    }else{
-        return "Deu Ruim";
-    }       
-        return "pohha";
+        
+   
+        return "rodou";
     }
 
     /**
