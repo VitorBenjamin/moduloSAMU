@@ -43,7 +43,7 @@ class ChamadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request  $request)
     {
         
         
@@ -60,7 +60,7 @@ class ChamadoController extends Controller
            $dados['latitude']= $json->latitude;
            $dados['longitude']= $json->longitude;
            $dados['status_id']= 1;
-           $dados['img']= "pohha";
+           $dados['img']= $json->img;
            $dados['clinico']= false;           
         
         $chamado=\App\Chamado::create($dados);        
