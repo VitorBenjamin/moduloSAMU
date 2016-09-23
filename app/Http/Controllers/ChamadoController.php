@@ -45,29 +45,28 @@ class ChamadoController extends Controller
      */
     public function store(Request  $request)
     {
-        
-        
-        $dado['tipo']="sauve";
 
-        \App\Statu::create($dado);
-        
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson);        
-        
-        
-           $dados['descricao']= $meujson->descricao;  
-           $dados['latitude']= $meujson->latitude;
-           $dados['longitude']= $meujson->longitude;
-           $dados['status_id']= 1;
-           $dados['img']= $meujson->img;
-           $dados['clinico']= false;           
-        
-        $chamado=\App\Chamado::create($dados);        
-        $chamado->save();               
-        
-   
-        return "rodou";
+        return response()->json($json);
+        if ($json != null){
+            $dado['tipo']="sauve";
+            \App\Statu::create($dado); 
+            $dados['descricao']= $json->descricao;  
+            $dados['latitude']= $json->latitude;
+            $dados['longitude']= $json->longitude;
+            $dados['status_id']= 1;
+            $dados['img']= $json->img;
+            $dados['clinico']= false;           
+
+            $chamado=\App\Chamado::create($dados);        
+            $chamado->save();               
+            return "final";
+        }else{
+            return "Deu Ruim";
+        }       
+        return "pohha";
     }
 
     /**
