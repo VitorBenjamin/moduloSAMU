@@ -56,7 +56,7 @@ class ChamadoController extends Controller
         
         if ($json != null){
            //($json);
-        return response()->json($json);
+        return response()->json($meujson);
            $dados['descricao']= $json->descricao;  
            $dados['latitude']= $json->latitude;
            $dados['longitude']= $json->longitude;
