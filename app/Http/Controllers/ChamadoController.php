@@ -43,9 +43,9 @@ class ChamadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        
         //dd($request->all());
         $dado['tipo']="sauve";
 
@@ -55,8 +55,6 @@ class ChamadoController extends Controller
         $json = json_decode($meujson);        
         
         if ($json != null){
-        
-        
            $dados['descricao']= $json->descricao;  
            $dados['latitude']= $json->latitude;
            $dados['longitude']= $json->longitude;
@@ -65,7 +63,7 @@ class ChamadoController extends Controller
            $dados['clinico']= false;           
         }
         $chamado=\App\Chamado::create($dados);        
-        //$chamado->save();
+        $chamado->save();
           //$base64= base64_encode($json->img);
           //echo '<img src="data:image/jpg;base64,' . $json->img . '" />';
           //echo (<img src="data:image/gif;base64,$json->img">);  
