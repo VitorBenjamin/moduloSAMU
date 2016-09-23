@@ -55,7 +55,7 @@ class ChamadoController extends Controller
         $json = json_decode($meujson);        
         
         if ($json != null){
-           //($json);
+        //($json);
         //return response()->json($meujson);
            $dados['descricao']= $json->descricao;  
            $dados['latitude']= $json->latitude;
