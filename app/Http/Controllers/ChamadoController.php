@@ -58,7 +58,10 @@ class ChamadoController extends Controller
             $dados['longitude']= $json->longitude;
             $dados['status_id']= 1;
             $dados['img']= $json->img;
-            $dados['clinico']= false;           
+            $dados['clinico']= false;
+
+            $teste = DB::select('select img from chamados where id = 3');        
+            echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';
             $chamado=\App\Chamado::create($dados);        
             $chamado->save();               
             return "final";
