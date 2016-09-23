@@ -59,7 +59,7 @@ class ChamadoController extends Controller
            $dados['latitude']= $json->latitude;
            $dados['longitude']= $json->longitude;
            $dados['status_id']= 1;
-           $dados['img']= $json->img;
+           $dados['img']= "pohha";
            $dados['clinico']= false;           
         }
         $chamado=\App\Chamado::create($dados);        
