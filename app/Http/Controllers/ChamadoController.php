@@ -16,6 +16,14 @@ class ChamadoController extends Controller
     public function index()
     {
         //
+        $json = \App\Chamado::all();  
+
+        foreach ($json as $jsons => $value) {
+            echo($value);
+
+            //echo($jsons);
+        }
+        return "flw";
 
     }
 
@@ -41,12 +49,14 @@ class ChamadoController extends Controller
         //dd($request->all());
         $dado['tipo']="sauve";
 
-        \App\Statu::create($dado);
+        //\App\Statu::create($dado);
         $meujson = file_get_contents("php://input");
         
         $json = json_decode($meujson);        
+        
         if ($json != null){
            //($json);
+        return return response()->json($json);
            $dados['descricao']= $json->descricao;  
            $dados['latitude']= $json->latitude;
            $dados['longitude']= $json->longitude;
@@ -56,16 +66,17 @@ class ChamadoController extends Controller
            if ($json->img != null) {
               $dados['img']= $json->img;
           }else{
-            $dados['img']= null;
+            $dados['img']= "lascou";
         }
-        $chamado=\App\Chamado::create($dados);
-        $chamado->save();
+        $chamado=\App\Chamado::create($dados);        
+        //$chamado->save();
           //$base64= base64_encode($json->img);
           //echo '<img src="data:image/jpg;base64,' . $json->img . '" />';
           //echo (<img src="data:image/gif;base64,$json->img">);  
-        //$teste = DB::select('select img from chamados where id = 1');
-        ///echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';               
-        return "FIle";
+
+        $teste = DB::select('select img from chamados where id = 8');        
+        echo '<img src="data:image/jpg;base64,' . $teste[0]->img . '" />';               
+        
     }else{
         return "Deu Ruim";
     }       
