@@ -13,34 +13,14 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Mapa/Rota - Chamado Nº {{$chamados->id}}</div>
             <div class="panel-body">
-                <div id="mapa"></div>
-
-                <div id="trajeto-texto"></div>
+                
                 <!--Vizualizar o MAPA-->
                 <div class="row">
                     <div class="col-md-12">
-                        <!--Colocar o Mapa-->                        
-                        <form method="post" action="showTwo.blade.php">
-                            <fieldset>
-                                <legend>Criar rotas</legend>
+                        <!--Colocar o Mapa--> 
+                        <div id="mapa"></div>
 
-                                <div>
-                                    <label for="txtEnderecoPartida">Endereço de partida:</label>
-                                    <input type="text" id="txtEnderecoPartida" name="txtEnderecoPartida" />
-                                </div>
-
-                                <div>
-                                    <label for="txtEnderecoChegada">Endereço de chegada:</label>
-                                    <input type="text" id="txtEnderecoChegada" name="txtEnderecoChegada" />
-                                </div>
-
-                                <div>
-                                    <input type="submit" id="btnEnviar" name="btnEnviar" value="Enviar" />
-                                </div>
-                            </fieldset>
-                        </form>
-                        
-
+                        <div id="trajeto-texto"></div>                                               
                     </div>  
                 </div>
                 
