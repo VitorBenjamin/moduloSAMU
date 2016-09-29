@@ -57,12 +57,15 @@ class ChamadoController extends Controller
             $dados['img']= $json->img;
             $dados['clinico']= $json->clinico;
             $dados['referencia']=$json->ref;
-            $chamado=\App\Chamado::create($dados);        
-            $chamado->save();               
-            
-            return "Chamado Enviados com Sucesso!!";
+            try {
+                $chamado=\App\Chamado::create($dados);        
+                $chamado->save();
+                return "Chamado Enviados com Sucesso!!";
+            } catch (Exception $e) {
+                return "Chamado Falhou tente novamente!!";
+            }
         } 
-        return "Chamado Falhou tente novamente!!";
+        return "Seu chamado Está sem conteudo";
     }
 
     /**
