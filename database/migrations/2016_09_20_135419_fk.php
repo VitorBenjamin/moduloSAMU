@@ -15,8 +15,6 @@ class Fk extends Migration
     public function up()
     {
 
-
-        
         Schema::table('chamados', function (Blueprint $table) {        
             $table->foreign('status_id')->references('id')->on('status');
             $table->foreign('prioridades_id')->references('id')->on('prioridades');

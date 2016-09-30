@@ -8,7 +8,7 @@
                 <div class="panel-heading">Principal</div>
 
                 <div class="panel-body">
-                    Você acabou de fazer login!
+                    SISTEMA DE GERENCIAMENTO DE CHAMADOS
                 </div>
             </div>
         </div>
