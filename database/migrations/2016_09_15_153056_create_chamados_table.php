@@ -21,10 +21,10 @@ class CreateChamadosTable extends Migration
     		$table->string('descricao');
     		$table->boolean('clinico');
     		$table->string('referencia');
-    		$table->integer('status_id')->unsigned()->default(1);
-    		$table->integer('prioridades_id')->unsigned()->default(1);
-    		$table->integer('filas_id')->unsigned()->default(1);
-    		$table->integer('users_id')->unsigned()->default(1);
+    		$table->integer('status_id')->unsigned()->default(2);
+    		$table->integer('prioridades_id')->unsigned()->default(2);
+    		$table->integer('filas_id')->unsigned()->default(2);
+    		$table->integer('users_id')->unsigned()->default(2);
     		$table->integer('enderecos_id')->unsigned()->nullable();            
     		$table->timestamps();
     		$table->softDeletes();

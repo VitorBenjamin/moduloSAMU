@@ -16,7 +16,6 @@
                     <div class="col-md-1">Código</div>
                     <div class="col-md-2">Proprietário</div>
                     <div class="col-md-2">Fila</div>
-                    <div class="col-md-2">Descricao</div>
                     <div class="col-md-1">Prioridade</div>
                     <div class="col-md-2">Status</div>
                     <div class="col-md-2">Data / Hora</div>
