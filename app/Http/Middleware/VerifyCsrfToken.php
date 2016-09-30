@@ -13,7 +13,6 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         //
-    	'/chamado/store',
-    	'/chamado'
+    	'/chamado/store'
     ];
 }
