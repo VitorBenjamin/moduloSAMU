@@ -55,7 +55,7 @@ class ChamadoController extends Controller
                 $dados['descricao']= $json->descricao;  
                 $dados['latitude']= $json->latitude;
                 $dados['longitude']= $json->longitude;
-                $dados['status_id']= 3;
+                $dados['status_id']= 2;
                 $dados['img']= $json->img;
                 $dados['referencia']=$json->ref;  
                 $dados['clinico']= $json->clinico;
