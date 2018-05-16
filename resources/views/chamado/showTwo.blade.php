@@ -2,8 +2,8 @@
 
 @section('content')
 <script>
-    lat=<?=$chamados->latitude?>;
-    lng=<?=$chamados->longitude?>;
+     lat=<?=$chamados->latitude?>;
+     lng=<?=$chamados->longitude?>;
 </script>
 <div class="row">
     <div class="col-md-1">

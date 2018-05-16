@@ -107,7 +107,7 @@
                         @endforeach
                     </div>  
                     <div class="col-md-7">
-                        <h4><b>Status:</b> {{$status->tipo}}</h4>
+                        <h4><b>Status:</b> {{$status ? $status->tipo : 'SEM TIPO DE STATUS'}}</h4>
                     </div>
                 </div>
                 
@@ -122,7 +122,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <!--Colocar a imagem-->                        
-                        <img src="data:image/jpg;base64, {{$chamados->img}}"/>
+                        <img src="data:image/jpg;base64, {{$chamados->img}}" class="img-responsive" />
                     </div>  
                 </div>
                 

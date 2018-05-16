@@ -14,22 +14,22 @@ class Chamado extends Model
 
 	public function status(){
 
-		return $this->belongsTo('App\Status');	
+		return $this->belongsTo('App\Statu','status_id');	
 	}
 	public function endereco(){
 
-		return $this->hasOne('App\Endereco');	
+		return $this->hasOne('App\Endereco','enderecos_id');	
 	}
 	public function prioridade(){
 
-		return $this->belongsTo('App\Prioridade');	
+		return $this->belongsTo('App\Prioridade','prioridades_id');	
 	}
 	public function fila(){
 
-		return $this->belongsTo('App\Fila');	
+		return $this->belongsTo('App\Fila','filas_id');	
 	}
 	public function users(){
-		return $this->belongsTo('App\User');
+		return $this->belongsTo('App\User','users_id');
 	}
 
 }

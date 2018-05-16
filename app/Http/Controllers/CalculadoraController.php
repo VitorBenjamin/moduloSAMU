@@ -11,7 +11,7 @@ use App\Fila;
 use App\Prioridade;
 use App\Statu;
 
-class ChamadoController extends Controller
+class CalculadoraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,10 +34,65 @@ class ChamadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function soma()
     {
-        //
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        if ($json != null) {
+             return $json->valor1 + $json->valor2;
+        }
     }
+    public function subtracao()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        if ($json != null) {
+             return $json->valor1 - $json->valor2;
+        }
+    }
+    public function multiplicao()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        if ($json != null) {
+             return $json->valor1 * $json->valor2;
+        }
+    }
+    public function divisao()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        if ($json != null) {
+             return $json->valor1 / $json->valor2;
+        }
+    }
+    public function resto()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        if ($json != null) {
+             return $json->valor1 % $json->valor2;
+        }
+    }
+    public function potenciacao()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+
+        if ($json != null) {
+             return pow($json->valor1,$json->valor2);
+        }
+    }
+    public function raiz()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+
+        if ($json != null) {
+             return sqrt($json->valor);
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
