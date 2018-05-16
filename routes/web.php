@@ -11,6 +11,9 @@
 |
 */
 Route::post('soma','CalculadoraController@soma');
+Route::post('subtracao','CalculadoraController@subtracao');
+Route::post('divisao','CalculadoraController@divisao');
+Route::post('multiplicao','CalculadoraController@multiplicao');
 Route::post('potenciacao','CalculadoraController@potenciacao');
 Route::post('raiz','CalculadoraController@raiz');
 
