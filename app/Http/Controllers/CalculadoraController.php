@@ -111,7 +111,7 @@ class CalculadoraController extends Controller
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
         if ($json) {
-            return sis($json->valor);
+            return sin($json->valor);
         }
     }
     public function tan()
