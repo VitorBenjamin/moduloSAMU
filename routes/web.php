@@ -16,7 +16,10 @@ Route::post('divisao','CalculadoraController@divisao');
 Route::post('multiplicao','CalculadoraController@multiplicao');
 Route::post('potenciacao','CalculadoraController@potenciacao');
 Route::post('raiz','CalculadoraController@raiz');
-
+Route::post('resto','CalculadoraController@resto');
+Route::post('seno','CalculadoraController@seno');
+Route::post('coseno','CalculadoraController@con');
+Route::post('tangente','CalculadoraController@tan');
 
 Auth::routes();
 Route::get('/', function () {

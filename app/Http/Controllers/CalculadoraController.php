@@ -39,39 +39,43 @@ class CalculadoraController extends Controller
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
         if ($json != null) {
-             return $json->valor1 + $json->valor2;
+            return $json->valor1 + $json->valor2;
         }
     }
     public function subtracao()
     {
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
-        if ($json != null) {
-             return $json->valor1 - $json->valor2;
+        if ($json != null) 
+        {
+            return $json->valor1 - $json->valor2;
         }
     }
     public function multiplicao()
     {
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
-        if ($json != null) {
-             return $json->valor1 * $json->valor2;
+        if ($json != null) 
+        {
+            return $json->valor1 * $json->valor2;
         }
     }
     public function divisao()
     {
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
-        if ($json != null) {
-             return $json->valor1 / $json->valor2;
+        if ($json != null) 
+        {
+            return $json->valor1 / $json->valor2;
         }
     }
     public function resto()
     {
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
-        if ($json != null) {
-             return $json->valor1 % $json->valor2;
+        if ($json != null) 
+        {
+            return $json->valor1 % $json->valor2;
         }
     }
     public function potenciacao()
@@ -79,8 +83,9 @@ class CalculadoraController extends Controller
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
 
-        if ($json != null) {
-             return pow($json->valor1,$json->valor2);
+        if ($json != null) 
+        {
+            return pow($json->valor1,$json->valor2);
         }
     }
     public function raiz()
@@ -88,8 +93,33 @@ class CalculadoraController extends Controller
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
 
-        if ($json != null) {
-             return sqrt($json->valor);
+        if ($json != null) 
+        {
+            return sqrt($json->valor);
+        }
+    }
+    public function con()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        if ($json) {
+            return cos($json->valor);
+        }
+    }
+    public function seno()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        if ($json) {
+            return sis($json->valor);
+        }
+    }
+    public function tan()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        if ($json) {
+            return tan($json->valor);
         }
     }
 
@@ -115,23 +145,23 @@ class CalculadoraController extends Controller
                 $dados['referencia']=$json->ref;  
                 $dados['clinico']= $json->clinico;
                 if (!$json->clinico) {
-                   $end['rua']=$json->rua;
-                   $end['numero']=$json->numero;
-                   $end['bairro']=$json->bairro;
-                   $end['cidade']=$json->cidade;
-                   $endereco=\App\Endereco::create($end);
-                   $endereco->save();
-                   $dados['enderecos_id']=$endereco->id;
-                   $chamado=\App\Chamado::create($dados);        
-                   $chamado->save();
-               }          
-               $chamado=\App\Chamado::create($dados);
+                 $end['rua']=$json->rua;
+                 $end['numero']=$json->numero;
+                 $end['bairro']=$json->bairro;
+                 $end['cidade']=$json->cidade;
+                 $endereco=\App\Endereco::create($end);
+                 $endereco->save();
+                 $dados['enderecos_id']=$endereco->id;
+                 $chamado=\App\Chamado::create($dados);        
+                 $chamado->save();
+             }          
+             $chamado=\App\Chamado::create($dados);
 
-               $chamado->save();
+             $chamado->save();
 
 
-               return "Chamado Enviados com Sucesso!!";
-           } catch (Exception $e) {
+             return "Chamado Enviados com Sucesso!!";
+         } catch (Exception $e) {
             return "Chamado Falhou tente novamente!!";
         }
     } 
