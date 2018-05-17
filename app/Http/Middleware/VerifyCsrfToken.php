@@ -19,11 +19,12 @@ class VerifyCsrfToken extends BaseVerifier
     	'divisao',
     	'multiplicao',
     	'potenciacao',
-    	'raiz'
+    	'raiz',
         'seno',
         'coseno',
         'tangente',
         'resto',
+        'fatorial',
 
     ];
 }

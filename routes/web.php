@@ -20,6 +20,7 @@ Route::post('resto','CalculadoraController@resto');
 Route::post('seno','CalculadoraController@seno');
 Route::post('coseno','CalculadoraController@con');
 Route::post('tangente','CalculadoraController@tan');
+Route::post('fatorial','CalculadoraController@fatorial');
 
 Auth::routes();
 Route::get('/', function () {

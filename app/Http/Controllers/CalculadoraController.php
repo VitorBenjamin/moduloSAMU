@@ -122,6 +122,23 @@ class CalculadoraController extends Controller
             return tan($json->valor);
         }
     }
+    public function fatorial()
+    {
+        $meujson = file_get_contents("php://input");        
+        $json = json_decode($meujson);
+        $total = 1;
+        if ($json) {
+
+            if ($json->valor == 0) {
+            return 1;
+            }
+
+            for($i = $json->valor; $i > 1; $i--) {
+                $total *= $i;
+            }
+            return $total;
+        }
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -145,23 +162,23 @@ class CalculadoraController extends Controller
                 $dados['referencia']=$json->ref;  
                 $dados['clinico']= $json->clinico;
                 if (!$json->clinico) {
-                 $end['rua']=$json->rua;
-                 $end['numero']=$json->numero;
-                 $end['bairro']=$json->bairro;
-                 $end['cidade']=$json->cidade;
-                 $endereco=\App\Endereco::create($end);
-                 $endereco->save();
-                 $dados['enderecos_id']=$endereco->id;
-                 $chamado=\App\Chamado::create($dados);        
-                 $chamado->save();
-             }          
-             $chamado=\App\Chamado::create($dados);
+                   $end['rua']=$json->rua;
+                   $end['numero']=$json->numero;
+                   $end['bairro']=$json->bairro;
+                   $end['cidade']=$json->cidade;
+                   $endereco=\App\Endereco::create($end);
+                   $endereco->save();
+                   $dados['enderecos_id']=$endereco->id;
+                   $chamado=\App\Chamado::create($dados);        
+                   $chamado->save();
+               }          
+               $chamado=\App\Chamado::create($dados);
 
-             $chamado->save();
+               $chamado->save();
 
 
-             return "Chamado Enviados com Sucesso!!";
-         } catch (Exception $e) {
+               return "Chamado Enviados com Sucesso!!";
+           } catch (Exception $e) {
             return "Chamado Falhou tente novamente!!";
         }
     } 
