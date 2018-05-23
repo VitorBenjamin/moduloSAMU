@@ -51,37 +51,26 @@ class ChamadoController extends Controller
         $json = json_decode($meujson);
         if ($json != null){            
             try {
-                $dados['nome']="teste";
+                $dados['nome']=$json->nome;
                 $dados['descricao']= $json->descricao;  
                 $dados['latitude']= $json->latitude;
                 $dados['longitude']= $json->longitude;
                 $dados['status_id']= 2;
                 $dados['img']= $json->img;
                 $dados['referencia']=$json->ref;  
-                $dados['clinico']= $json->clinico;
-                if (!$json->clinico) {
-                   $end['rua']=$json->rua;
-                   $end['numero']=$json->numero;
-                   $end['bairro']=$json->bairro;
-                   $end['cidade']=$json->cidade;
-                   $endereco=\App\Endereco::create($end);
-                   $endereco->save();
-                   $dados['enderecos_id']=$endereco->id;
-                   $chamado=\App\Chamado::create($dados);        
-                   $chamado->save();
-               }          
-               $chamado=\App\Chamado::create($dados);
+                $dados['clinico']= $json->clinico;        
+                $chamado=\App\Chamado::create($dados);
 
-               $chamado->save();
+                $chamado->save();
 
 
-               return "Chamado Enviados com Sucesso!!";
-           } catch (Exception $e) {
-            return "Chamado Falhou tente novamente!!";
-        }
-    } 
-    return "Seu chamado Está sem conteudo";
-}
+                return "Chamado Enviados com Sucesso!!";
+            } catch (Exception $e) {
+                return "Chamado Falhou tente novamente!!";
+            }
+        } 
+        return "Seu chamado Está sem conteudo";
+    }
 
     /**
      * Display the specified resource.
