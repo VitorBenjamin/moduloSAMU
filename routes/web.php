@@ -10,7 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::post('chamado/store', 'ChamadoController@store');
+Route::post('/chamado/store', 'ChamadoController@store');	
 
 Auth::routes();
 Route::get('/', function () {
@@ -24,12 +24,11 @@ Route::group(['middleware' => ['auth.basic']],function()
 	Route::get('coordenador-dashboard', ['uses' => 'UserController@coordenadorDash','middleware' => 'auth', 'as' => 'user.coordenadorDash']);
 	Route::get('set-reprovar/{id}', ['uses' => 'SolicitacaoController@reprovar', 'as' => 'solicitacao.reprovar']);
 
-	// Rotas dos Chamados	
-	Route::get('chamado', 'ChamadoController@index');
-	Route::get('chamado/create', 'ChamadoController@create');
-	Route::put('/edit/{id}', ['uses'=>'ChamadoController@edit', 'as'=>'chamados.edit']);
-	Route::get('/destroy/{id}', ['uses'=>'ChamadoController@destroy', 'as'=>'chamados.destroy']);
-	Route::get('/detalhe/{id}', ['uses'=>'ChamadoController@detalhe', 'as'=>'chamados.detalhe']);
+	// Rotas dos Chamados
+	Route::get('chamado', ['uses' => 'ChamadoController@index' ,'as' => 'chamado.index']);
+	Route::put('edit/{id}', ['uses'=>'ChamadoController@edit', 'as'=>'chamados.edit']);
+	Route::get('destroy/{id}', ['uses'=>'ChamadoController@destroy', 'as'=>'chamados.destroy']);
+	Route::get('detalhe/{id}', ['uses'=>'ChamadoController@detalhe', 'as'=>'chamados.detalhe']);
 	Route::get('chamado/show/{idCham}', 'ChamadoController@show');
 	Route::get('chamado/showTwo/{idCham}', 'ChamadoController@showTwo');
 	Route::post('chamado/update/{idCham}', 'ChamadoController@update');
