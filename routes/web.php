@@ -10,17 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::post('soma','CalculadoraController@soma');
-Route::post('subtracao','CalculadoraController@subtracao');
-Route::post('divisao','CalculadoraController@divisao');
-Route::post('multiplicao','CalculadoraController@multiplicao');
-Route::post('potenciacao','CalculadoraController@potenciacao');
-Route::post('raiz','CalculadoraController@raiz');
-Route::post('resto','CalculadoraController@resto');
-Route::post('seno','CalculadoraController@seno');
-Route::post('coseno','CalculadoraController@con');
-Route::post('tangente','CalculadoraController@tan');
-Route::post('fatorial','CalculadoraController@fatorial');
+Route::post('chamado/store', 'ChamadoController@store');
 
 Auth::routes();
 Route::get('/', function () {
@@ -34,8 +24,7 @@ Route::group(['middleware' => ['auth.basic']],function()
 	Route::get('coordenador-dashboard', ['uses' => 'UserController@coordenadorDash','middleware' => 'auth', 'as' => 'user.coordenadorDash']);
 	Route::get('set-reprovar/{id}', ['uses' => 'SolicitacaoController@reprovar', 'as' => 'solicitacao.reprovar']);
 
-	// Rotas dos Chamados
-	Route::post('/chamado/store', 'ChamadoController@store');	
+	// Rotas dos Chamados	
 	Route::get('chamado', 'ChamadoController@index');
 	Route::get('chamado/create', 'ChamadoController@create');
 	Route::put('/edit/{id}', ['uses'=>'ChamadoController@edit', 'as'=>'chamados.edit']);

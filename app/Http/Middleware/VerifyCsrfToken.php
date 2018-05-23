@@ -13,18 +13,6 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         //
-    	'/chamado/store',
-    	'soma',
-    	'subtracao',
-    	'divisao',
-    	'multiplicao',
-    	'potenciacao',
-    	'raiz',
-        'seno',
-        'coseno',
-        'tangente',
-        'resto',
-        'fatorial',
-
+    	'chamado/store',
     ];
 }

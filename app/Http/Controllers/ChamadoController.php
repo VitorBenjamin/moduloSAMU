@@ -46,7 +46,6 @@ class ChamadoController extends Controller
      */
     public function store()
     {
-
         $meujson = file_get_contents("php://input");        
         $json = json_decode($meujson);
         if ($json != null){            
@@ -58,11 +57,11 @@ class ChamadoController extends Controller
                 $dados['status_id']= 2;
                 $dados['img']= $json->img;
                 $dados['referencia']=$json->ref;  
-                $dados['clinico']= $json->clinico;        
+                $dados['clinico']= $json->clinico;
+                $dados['statusVitima']=$json->statusDaVitima;        
                 $chamado=\App\Chamado::create($dados);
 
                 $chamado->save();
-
 
                 return "Chamado Enviados com Sucesso!!";
             } catch (Exception $e) {
